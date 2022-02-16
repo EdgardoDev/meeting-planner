@@ -9,6 +9,15 @@
 <body>
     <h1>Welcome To The Meeting Planner App!</h1>
     <p>This is just a simple application built with Django.</p>
-    <p>There are currently {{num_meetings}} meetings in the database.</p>
+    
+    <h2>Meetings</h2>
+    <ul>
+        {% for meeting in meetings %}
+            <li>
+                <a href="{% url 'detail' meeting.id %}">{{meeting.title}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'rooms' %}">ROOMS LIST</a>
 </body>
 </html>
